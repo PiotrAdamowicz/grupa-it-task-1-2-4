@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Zadanie 2 - Fromularz</title>
+  </head>
+  <body>
+    <form name="addBookForm" id="form">
+      <h2 class="header">Wypełnij formularz i dodaj książke do biblioteki</h2>
+      <label for="title">Tytuł:</label
+      ><span class="invalidTitle" id="invalidTitle"
+        >Tytuł musi mieć conajmniej 1 literę</span
+      >
+      <input type="text" required minlength="1" id="title" name="title" />
+      <label for="author">Autor:</label>
+      <span class="invalidAuthor" id="invalidAuthor"
+        >Autor musi mieć conajmniej 3 litery</span
+      >
+      <input type="text" required minlength="3" id="author" name="author" />
+      <label for="priority">Priorytet przeczytania:</label>
+      <select name="priority" id="priority">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <label for="categorys">Kategoria:</label>
+      <select name="categorys" id="categorys">
+        <option value="Kryminał">Kryminał</option>
+        <option value="Sensacja">Sensacja</option>
+        <option value="Fantastyka">Fantastyka</option>
+      </select>
+      <button type="submit" class="btn" id="submit">Dodaj</button>
+    </form>
+    <section class="list-container"></section>
+  </body>
+  <script src="main.js"></script>
+</html>
