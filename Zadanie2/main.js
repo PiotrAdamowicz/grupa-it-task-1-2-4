@@ -4,8 +4,6 @@ const form = document.getElementById("form");
 const btnReset = document.getElementById("reset");
 const titleEl = document.getElementById("title");
 const authorEl = document.getElementById("author");
-const errorAuthorEl = document.getElementById("invalidAuthor");
-const errorTitleEl = document.getElementById("invalidTitle");
 const booksListElement = document.getElementsByClassName("list-container")[0];
 
 window.onload = () => {
@@ -57,8 +55,6 @@ const validateAuthor = (author) => {
     res = true;
   } else {
     res = false;
-    authorMessage.push("Autor musi mieć conajmniej 3 litery!");
-    errorAuthorEl.style.display = "block";
   }
   return res;
 };
@@ -68,8 +64,6 @@ const validateTitle = (title) => {
     res = true;
   } else {
     res = false;
-    titleMessage.push("Tytuł musi mieć conajmniej 1 literę!");
-    errorTitleEl.style.display = "block";
   }
   return res;
 };
@@ -84,8 +78,6 @@ const resetForm = (data) => {
   data[1].value = "";
   data[2].value = "1";
   data[3].value = "Kryminał";
-  errorTitleEl.style.display = "none";
-  errorAuthorEl.style.display = "none";
 };
 
 const renderingList = (booksList) => {
@@ -118,11 +110,10 @@ const renderingList = (booksList) => {
 };
 
 const submitForm = (e) => {
-  e.preventDefault();
-  console.log(e.target);
   validForm = validateForm();
   if (validForm) {
     addBook(e.target);
+    resetForm(e.target);
     window.location.reload();
     console.log("Valid data send");
   } else {
